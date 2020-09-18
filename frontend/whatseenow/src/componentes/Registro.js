@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Input, InputNumber, Button } from "antd";
+import { Form, Input, InputNumber, Button, Result } from "antd";
 import "./registro.css";
 import Header from "./Header";
 import axios from "./axios.js";
@@ -9,6 +9,7 @@ export default class Registro extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      emailrepetido: false,
       nombre: "",
       email: "",
       password: "",
@@ -109,6 +110,17 @@ export default class Registro extends React.Component {
               </Button>
             </Form.Item>
           </Form>
+          {this.state.emailrepetido && (
+            <Result
+              status="warning"
+              title="There are some problems with your operation."
+              extra={
+                <Button type="primary" key="console">
+                  Go Console
+                </Button>
+              }
+            />
+          )}
         </div>
       </div>
     );
