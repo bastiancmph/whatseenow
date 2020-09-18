@@ -1,0 +1,9 @@
+@import "~antd/dist/antd.css";
+
+.site-page-header {
+  border: 1px solid rgb(235, 237, 240);
+  height: 100%;
+}
+.siderr {
+  display: flex;
+}

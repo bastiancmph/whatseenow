@@ -1,0 +1,19 @@
+@import "~antd/dist/antd.css";
+
+* {
+  box-sizing: border-box;
+}
+
+.buscador {
+  align-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.general {
+  background-color: white;
+}
+
+#side {
+  display: flex;
+}

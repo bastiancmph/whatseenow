@@ -1,0 +1,12 @@
+.login {
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+}
+
+.pass {
+  justify-self: center;
+  padding-top: 15px;
+}

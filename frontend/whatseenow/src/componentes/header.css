@@ -1,0 +1,29 @@
+.header {
+  background-color: white;
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: space-around;
+  padding-left: 30px;
+  padding-right: 3px;
+  padding-top: 10px;
+  position: static;
+  height: 50px;
+  margin: 1px;
+}
+
+.btingresar {
+  padding-left: 11px;
+}
+
+.btcuenta {
+  padding-left: 40%;
+}
+
+.buscador {
+  width: 35%;
+  padding-left: 3%;
+}
+
+.txWhatseenow {
+  padding-right: 2px;
+}

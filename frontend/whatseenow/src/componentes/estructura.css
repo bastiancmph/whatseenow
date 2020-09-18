@@ -1,0 +1,20 @@
+.contenido {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  position: static;
+  justify-content: space-between;
+}
+
+.targeta {
+  margin-top: 4%;
+}
+
+.iconoizq {
+  padding-left: 2pc;
+}
+
+.iconoder {
+  padding-right: 2pc;
+}
