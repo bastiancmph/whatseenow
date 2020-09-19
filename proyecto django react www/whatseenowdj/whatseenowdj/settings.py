@@ -26,6 +26,7 @@ SECRET_KEY = 'gw^jgg3eezkuipq__azhwr)vr5zhu$l3dn!a1y45!f=*dd_6)!'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+API_KEY_SECRET = 'perrogato'
 
 
 # Application definition

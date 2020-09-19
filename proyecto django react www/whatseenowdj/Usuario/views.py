@@ -15,7 +15,7 @@ class UsuarioListCreate(generics.ListCreateAPIView):
 @api_view(['GET', 'POST'])
 def UsuarioList(request):
     """
-    List all code Books, or create a new Book.
+    List all code Usuarios, or create a new Usuario.
     """
     if request.method == 'GET':
         usuarios = Usuario.objects.all()
@@ -28,3 +28,11 @@ def UsuarioList(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        permission_classes = (Check_API_KEY_Auth,)
+
+        def get(self, request, format=None):
+            content = {
+                'status': 'request was permitted'
+            }
+            return Response(content)
