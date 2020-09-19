@@ -10,6 +10,7 @@ export default class Registro extends React.Component {
     super(props);
     this.state = {
       emailrepetido: false,
+      registroCorrecto: false,
       nombre: "",
       email: "",
       password: "",
@@ -34,19 +35,21 @@ export default class Registro extends React.Component {
       email: values.user.email,
       password: values.user.password,
     };
+
     axios
       .post("http://127.0.0.1:8000/api/Usuario/", {
         nombre: values.user.nombre,
         email: values.user.email,
         password: values.user.password,
       })
-      .then(function (response) {
-        console.log(response);
+      .then((response) => {
+        if (response.status == 201) {
+          this.setState({ registroCorrecto: true, emailrepetido: false });
+        } else {
+          this.setState({ emailrepetido: true, registroCorrecto: false });
+        }
       })
-      .catch(function (error) {
-        console.log(error);
-        console.log("mala consulta");
-      });
+      .catch(this.setState({ emailrepetido: true, registroCorrecto: false }));
   };
 
   render() {
@@ -113,12 +116,25 @@ export default class Registro extends React.Component {
           {this.state.emailrepetido && (
             <Result
               status="warning"
-              title="There are some problems with your operation."
+              title="El Email que ingresaste ya existe"
               extra={
                 <Button type="primary" key="console">
                   Go Console
                 </Button>
               }
+            />
+          )}
+
+          {this.state.registroCorrecto && (
+            <Result
+              status="success"
+              title="Bienvenido a nuestra familia <3"
+              subTitle="Por favor revisa tu correo para confirmar tu cuenta"
+              extra={[
+                <Button type="primary" key="console">
+                  Go Console
+                </Button>,
+              ]}
             />
           )}
         </div>

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Usuario.apps.UsuarioConfig',
+    'Peliculas.apps.PeliculasConfig',
     'rest_framework',
     'corsheaders'
 ]
