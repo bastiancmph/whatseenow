@@ -3,15 +3,13 @@ import React from "react";
 import { Button, Input, Popover } from "antd";
 import "./header.css";
 import Modal1 from "./Modal1";
-import Modal from "antd/lib/modal/Modal";
-
 const { Search } = Input;
 
 export default class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      rowF: "",
+      busqueda: "",
       mostrarReferencia: false,
     };
   }
@@ -27,7 +25,9 @@ export default class Header extends React.Component {
           <div className="buscador">
             <Search
               placeholder="Busca una pelicula"
-              onSearch={(value) => console.log(value)}
+              onSearch={(value) => {
+                this.props.busqueda(value);
+              }}
             />
           </div>
 

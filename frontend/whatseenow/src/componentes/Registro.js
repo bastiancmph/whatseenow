@@ -43,7 +43,7 @@ export default class Registro extends React.Component {
         password: values.user.password,
       })
       .then((response) => {
-        if (response.status == 201) {
+        if (response.status === 201) {
           this.setState({ registroCorrecto: true, emailrepetido: false });
         } else {
           this.setState({ emailrepetido: true, registroCorrecto: false });
