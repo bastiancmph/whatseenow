@@ -13,6 +13,7 @@ class Autenticacion(authentication.BaseAuthentication):
 
         try:
             Usuario = Usuario.objects.get(email=email, password=password)
+
         except exceptions.NotFound:
             raise exceptions.AuthenticationFailed('No such user')
 

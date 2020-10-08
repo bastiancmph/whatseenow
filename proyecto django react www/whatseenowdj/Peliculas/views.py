@@ -21,7 +21,6 @@ def PeliculasList(request):
         peliculas = Peliculas.objects.all()
         serializer = PeliculasSerializer(peliculas, many=True)
         return Response(serializer.data)
-
     elif request.method == 'POST':
         serializer = PeliculasSerializer(data=request.data)
         if serializer.is_valid():
