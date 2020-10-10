@@ -5,6 +5,9 @@ from rest_framework import generics
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+import csv
+from .admin import query_to_csv
+from django.http import HttpResponse
 
 
 class PeliculasListCreate(generics.ListCreateAPIView):
@@ -19,6 +22,8 @@ def PeliculasList(request):
     """
     if request.method == 'GET':
         peliculas = Peliculas.objects.all()
+        query_to_csv(Peliculas.objects.all(),
+                     filename='data.csv', user=1, group=1)
         serializer = PeliculasSerializer(peliculas, many=True)
         return Response(serializer.data)
     elif request.method == 'POST':
@@ -27,5 +32,6 @@ def PeliculasList(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 # Create your views here.

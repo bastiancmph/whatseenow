@@ -14,7 +14,6 @@ export default class Targetaspeliculas extends React.Component {
   state = {
     urlbase: "https://image.tmdb.org/t/p/w500/",
   };
-
   render() {
     return (
       <div>
@@ -57,7 +56,30 @@ export default class Targetaspeliculas extends React.Component {
             >
               LIKE
             </Button>,
-            <Button>¡Ver recomendaciones!</Button>,
+            <Button
+              onClick={() => {
+                axios
+                  .post("http://127.0.0.1:8000/api/Peliculas/", {
+                    nombre: this.props.datos[this.props.indice].title,
+                    genero: this.props.datos[this.props.indice].genre_ids[0],
+                    Calificacion: this.props.datos[this.props.indice]
+                      .vote_count,
+                    imagen:
+                      this.state.urlbase +
+                      this.props.datos[this.props.indice].poster_path,
+                    CortaDescripcion: this.props.datos[this.props.indice]
+                      .overview,
+                  })
+                  .then(function (response) {
+                    console.log(response);
+                  })
+                  .catch(function (error) {
+                    console.log(error);
+                  });
+              }}
+            >
+              ¡Ver recomendaciones!
+            </Button>,
           ]}
         >
           <Meta

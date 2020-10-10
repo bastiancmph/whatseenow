@@ -74,7 +74,7 @@ export default class Estructura extends React.Component {
 
           <div>
             <div className="iconoder">
-              {this.state.indiceE <= this.state.datos.length && (
+              {this.state.indiceE < this.state.datos.length && (
                 <RightOutlined
                   onClick={() => {
                     if (this.state.indiceE < this.state.datos.length - 1) {
